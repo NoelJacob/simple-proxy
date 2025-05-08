@@ -55,13 +55,13 @@ export class MyDurableObject extends DurableObject<Env> {
 
 export default {
 	async fetch(req, env, ctx): Promise<Response> {
-		try {
-			const id: DurableObjectId = env.MY_DURABLE_OBJECT.jurisdiction('fedramp').idFromName('us');
-			const stub = env.MY_DURABLE_OBJECT.get(id);
-			return stub.durableFetch(req);
-		} catch (e) {
-			console.error('Error in fetch:', e);
-			return new Response('Internal Server Error', { status: 500 });
-		}
+		// try {
+		const id: DurableObjectId = env.MY_DURABLE_OBJECT.jurisdiction('fedramp').idFromName('us');
+		const stub = env.MY_DURABLE_OBJECT.get(id);
+		return stub.durableFetch(req);
+		// } catch (e) {
+		// console.error('Error in fetch:', e);
+		// return new Response('Internal Server Error', { status: 500 });
+		// }
 	},
 } satisfies ExportedHandler<Env>;
