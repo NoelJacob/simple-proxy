@@ -1,16 +1,21 @@
 {
-	"name": "my-first-worker",
-	"version": "0.0.0",
+	"name": "simple-proxy",
+	"version": "0.1.0",
 	"private": true,
+	"type": "module",
+	"license": "AGPL-3.0-only",
 	"scripts": {
-		"deploy": "wrangler deploy",
-		"dev": "wrangler dev",
-		"start": "wrangler dev",
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "bun run build && vite preview",
+		"deploy": "bun run build && wrangler deploy",
 		"cf-typegen": "wrangler types"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250506.0",
-		"typescript": "^5.5.2",
-		"wrangler": "^4.14.1"
+		"@cloudflare/vite-plugin": "^1.1.1",
+		"typescript": "^5.8.3",
+		"vite": "^6.3.5",
+		"vite-plugin-compile-time": "^0.4.6",
+		"wrangler": "^4.14.3"
 	}
 }
